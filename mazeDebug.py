@@ -11,7 +11,7 @@ def printMaze(maze):
         writeTxt.write("\n")
     writeTxt.close()
 
-filePath = "/mnt/c/Users/ARDA/Desktop/cs300/hw1/marda_muftuoglu_mehmetarda_hw1/marda_muftuoglu_mehmetarda_hw1/"
+filePath = "" #enter file path of homework txts here
 mazeID = input("MazeID: ")
 mazeFile = "maze_"+ mazeID +".txt"
 
@@ -46,11 +46,11 @@ maze = []
 counter = 0
 counter2 = 0
 
-for i in range(2 * int(mazeRow) + 1):
-    if i == (2 * int(mazeRow)):
+for i in range(2 * int(mazeRow) + 1): #creates maze starting from row 0 and appends to the maze list, thus maze is genreated upside down
+    if i == (2 * int(mazeRow)):       #but while printing maze it is reverted back so it prints it normal
         mazeC = ["#"] * (3 * int(mazeColumn) + 1)
         maze.append(mazeC)
-    elif i % 2 == 0:
+    elif i % 2 == 0: #this line only consists of up and down walls
         mazeC = ["#"]
         for k in range(int(mazeColumn)):
             if mazeInfo[(counter2 * int(mazeColumn)) + k][1] == 1:
@@ -64,7 +64,7 @@ for i in range(2 * int(mazeRow) + 1):
                     mazeC.append("   ")
         counter2 += 1
         maze.append(mazeC)
-    elif i % 2 == 1:
+    elif i % 2 == 1: # this line is where left and right walls are printed
         mazeC = ["#"]
         for k in range(int(mazeColumn)):
             if mazeInfo[(counter * int(mazeColumn)) + k][0] == 1:
@@ -84,7 +84,7 @@ for line in inputSolutionFile:
 inputSolutionFile.close()
 
 value = maze[2 * solutionInfo[0][1] + 1][solutionInfo[0][0] + 1]
-if solutionInfo[1][1] - solutionInfo[0][1] == 1:
+if solutionInfo[1][1] - solutionInfo[0][1] == 1: #solution starts by going up
     if value == "  #":
         value = "OO#"
         value2 = "▲▲#"
@@ -97,7 +97,7 @@ if solutionInfo[1][1] - solutionInfo[0][1] == 1:
             value = "OOO"
             value2 = "▲▲▲"
     maze[2 * solutionInfo[0][1] + 2][solutionInfo[0][0] + 1] = value2
-elif solutionInfo[1][1] - solutionInfo[0][1] == -1:
+elif solutionInfo[1][1] - solutionInfo[0][1] == -1:#solution starts by going down
     if value == "  #":
         value = "OO#"
         value2 = "▼▼#"
@@ -110,9 +110,9 @@ elif solutionInfo[1][1] - solutionInfo[0][1] == -1:
             value = "OOO"
             value2 = "▼▼▼"
     maze[2 * solutionInfo[0][1]][solutionInfo[0][0] + 1] = value2
-elif solutionInfo[1][0] - solutionInfo[0][0] == 1:
+elif solutionInfo[1][0] - solutionInfo[0][0] == 1:#solution starts by going right
     value = "OOO"
-elif solutionInfo[1][0] - solutionInfo[0][0] == -1:
+elif solutionInfo[1][0] - solutionInfo[0][0] == -1:#solution starts by going left
     if value == "  #":
         value = "OO#"
     else:
