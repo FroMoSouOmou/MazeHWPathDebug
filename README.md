@@ -2,5 +2,5 @@
 
 Visualizes path of the solution that was created by HW1 maze generator and solver code
 
-An Example 
+### An Example 
 ![This is an example screenshot](./example.png)
