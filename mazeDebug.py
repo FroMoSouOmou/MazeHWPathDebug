@@ -11,7 +11,7 @@ def printMaze(maze):
         writeTxt.write("\n")
     writeTxt.close()
 
-filePath = "" #file path of maze and maze solution txts
+filePath = "/mnt/c/Users/ARDA/Desktop/cs300/hw1/marda_muftuoglu_mehmetarda_hw1/marda_muftuoglu_mehmetarda_hw1/"
 mazeID = input("MazeID: ")
 mazeFile = "maze_"+ mazeID +".txt"
 
@@ -168,6 +168,10 @@ for i in range(1, len(solutionInfo) - 1):
                     value = "▼▼ "
                 elif solutionInfo[i][0] - solutionInfo[i - 1][0] == -1:
                     value = "▼▼◄"
+                elif value == "   ":
+                    value = "▼▼ "
+                elif value == "  #":
+                    value = "▼▼#"
             else:
                 value = "▼▼▼"
                 value2 = "▼▼▼"
